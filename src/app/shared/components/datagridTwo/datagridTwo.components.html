@@ -1,0 +1,44 @@
+<br>
+
+<div>
+    <div class="input-field col s6">
+        <input id="first_name"  class="validate" [(ngModel)]="searchStr">
+        <label class="active" for="first_name">Фильтр по имени и профессии и ...</label>
+    </div>
+</div>
+<div>
+    <table class="table table-striped">
+            <thead>
+                    <tr>
+                        <th>
+                            <a href="#" (click)="sortType('name')">
+                                {{theads[0]}}
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" (click)="sortType('age')">
+                                {{theads[1]}}
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" (click)="sortType('email')">
+                                {{theads[2]}}
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" (click)="sortType('profession')">
+                                {{theads[3]}}
+                            </a>
+                        </th>
+                    </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of users | search:searchStr">
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.profession}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
